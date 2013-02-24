@@ -1,7 +1,7 @@
-var connect  = require("connect"),
-    Playback = require("../");
+var connect         = require("connect"),
+    CannedResponses = require("../");
 
 connect()
-  .use((new Playback("playbackConfig.js")).middleware)
+  .use((new CannedResponses("responses.js")).middleware)
   .listen(3000);
  

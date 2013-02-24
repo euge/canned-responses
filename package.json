@@ -1,14 +1,14 @@
 {
-  "name": "playback",
+  "name": "canned-responses",
   "version": "0.0.1",
   "description": "connect middleware that returns pre-configured responses",
-  "main": "lib/playback.js",
+  "main": "lib/cannedResponses.js",
   "scripts": {
     "test": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/euge/playback.git"
+    "url": "git://github.com/euge/canned.git"
   },
   "keywords": [
     "connect",

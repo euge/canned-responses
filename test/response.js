@@ -2,12 +2,12 @@
 
 var connect = require("connect"),
     request = require('supertest'),
-    Playback = require("../");
+    CannedResponses = require("../");
 
-var app      = connect(),
-    playback = new Playback("test/fixtures/responses.js", true);
+var app    = connect(),
+    canned = new CannedResponses("test/fixtures/responses.js", true);
     
-app.use(playback.middleware);
+app.use(canned.middleware);
 
 describe("Responses", function() {
   
