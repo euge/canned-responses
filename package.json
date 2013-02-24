@@ -1,6 +1,6 @@
 {
   "name": "canned-responses",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "connect middleware that returns pre-configured responses",
   "main": "lib/cannedResponses.js",
   "scripts": {
