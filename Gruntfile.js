@@ -34,18 +34,18 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
+
   grunt.registerTask("spec", function() {
-    var done = this.async(), mocha;
+    var path  = require('path'),
+        mocha = new (require('mocha'))({});
 
-    mocha = require('child_process').spawn('mocha', ["--colors"]);
+    grunt.file.expand("test/*.js").map(function(p) {
+      return path.resolve(p);
+    }).map(mocha.addFile.bind(mocha));
 
-    mocha.stdout.pipe(process.stdout, { end : false });
-    mocha.stderr.pipe(process.stdout, { end : false });
-
-    mocha.on('exit', function (code) {
-      done(code === 0);
-    });
+    mocha.run(this.async());
   });
+
   grunt.registerTask("default", "spec");
 
 }
