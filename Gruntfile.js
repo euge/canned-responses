@@ -39,13 +39,8 @@ module.exports = function(grunt) {
 
     mocha = require('child_process').spawn('mocha', ["--colors"]);
 
-    mocha.stdout.on('data', function (data) {
-      process.stdout.write(data);
-    });
-
-    mocha.stderr.on('data', function (data) {
-      process.stdout.write(data);
-    });
+    mocha.stdout.pipe(process.stdout, { end : false });
+    mocha.stderr.pipe(process.stdout, { end : false });
 
     mocha.on('exit', function (code) {
       done(code === 0);
