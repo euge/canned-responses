@@ -1,0 +1,28 @@
+{
+  "name": "playback",
+  "version": "0.0.1",
+  "description": "connect middleware that returns pre-configured responses",
+  "main": "lib/playback.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/euge/playback.git"
+  },
+  "keywords": [
+    "connect",
+    "middleware",
+    "testing"
+  ],
+  "author": "Euge Gimelberg",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "connect": "~2.7.3",
+    "mocha": "~1.8.1",
+    "supertest": "~0.5.1",
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1"
+  }
+}
