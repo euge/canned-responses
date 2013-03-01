@@ -10,7 +10,7 @@ describe("CRUD API", function() {
 
   beforeEach(function() {
     server = canned().init(__dirname + "/fixtures/responses.js");
-  })
+  });
 
   it("should return all stored canned responses", function(done) {
     request(server)
@@ -33,7 +33,7 @@ describe("CRUD API", function() {
       .post('/__canned_responses__/data')
       .send({ verb: 'GET', url : "/widgets", resp : cannedWidgetsIndex })
       .end(function(err, res) {
-        expect(res.status).to.equal(200)
+        expect(res.status).to.equal(200);
         expect(res.body).to.deep.equal({
           verb: 'GET',
           url : "/widgets",
@@ -53,7 +53,7 @@ describe("CRUD API", function() {
     request(server)
       .del('/__canned_responses__/data/' + encodeURIComponent("GET-/people"))
       .end(function(err, res) {
-        expect(res.status).to.equal(200)
+        expect(res.status).to.equal(200);
 
         // verify we can't access it anymore
         request(server)
@@ -69,7 +69,7 @@ describe("Actual canned responses", function() {
 
   before(function() {
     server = canned().init(__dirname + "/fixtures/responses.js");
-  })
+  });
 
   describe("should respond with a 200 when there is a match", function(){
 

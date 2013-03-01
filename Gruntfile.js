@@ -12,7 +12,8 @@ module.exports = function(grunt) {
         "indent": 2,
         "white" : false,
         "devel" : true,
-        "node" : true
+        "node" : true,
+        "es5": true
       },
       source : {
         files : {
@@ -26,7 +27,9 @@ module.exports = function(grunt) {
         options : {
           globals : {
             it : false,
-            describe : false
+            describe : false,
+            beforeEach : false,
+            before : false
           }
         }
       }
