@@ -1,6 +1,6 @@
 {
   "name": "canned-responses",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "connect middleware that returns pre-configured responses",
   "main": "lib/server.js",
   "scripts": {
@@ -22,7 +22,6 @@
     "underscore": "~1.4.4"
   },
   "devDependencies": {
-    "connect": "~2.7.3",
     "mocha": "~1.8.1",
     "supertest": "~0.5.1",
     "grunt": "~0.4.0",
