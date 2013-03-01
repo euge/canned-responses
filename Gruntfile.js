@@ -39,13 +39,13 @@ module.exports = function(grunt) {
     var path  = require('path'),
         mocha = new (require('mocha'))({});
 
-    grunt.file.expand("test/*.js").map(function(p) {
-      return path.resolve(p);
-    }).map(mocha.addFile.bind(mocha));
+    grunt.file.expand("test/*.js")
+      .map(path.resolve)
+      .map(mocha.addFile.bind(mocha));
 
     mocha.run(this.async());
   });
 
-  grunt.registerTask("default", "spec");
+  grunt.registerTask("default", [ "jshint", "spec" ]);
 
 }

@@ -1,7 +1,3 @@
-var connect         = require("connect"),
-    CannedResponses = require("../");
+var canned = require("../"), server;
 
-connect()
-  .use((new CannedResponses("responses.js")).middleware)
-  .listen(3000);
- 
+server = canned().init(__dirname + "/responses.js").listen(3000)

@@ -2,7 +2,7 @@
   "name": "canned-responses",
   "version": "0.0.2",
   "description": "connect middleware that returns pre-configured responses",
-  "main": "lib/cannedResponses.js",
+  "main": "lib/server.js",
   "scripts": {
     "test": "grunt"
   },
@@ -17,12 +17,16 @@
   ],
   "author": "Euge Gimelberg",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "express": "~3.1.0",
+    "underscore": "~1.4.4"
+  },
   "devDependencies": {
     "connect": "~2.7.3",
     "mocha": "~1.8.1",
     "supertest": "~0.5.1",
     "grunt": "~0.4.0",
-    "grunt-contrib-jshint": "~0.1.1"
+    "grunt-contrib-jshint": "~0.1.1",
+    "chai": "~1.5.0"
   }
 }
