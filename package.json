@@ -11,8 +11,9 @@
     "url": "git://github.com/euge/canned-responses.git"
   },
   "keywords": [
-    "connect",
+    "express",
     "middleware",
+    "mock",
     "testing"
   ],
   "author": "Euge Gimelberg",
