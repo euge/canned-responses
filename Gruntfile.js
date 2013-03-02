@@ -39,10 +39,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
 
   grunt.registerTask("spec", function() {
+    require("coffee-script");
+    
     var path  = require('path'),
-        mocha = new (require('mocha'))({});
+        mocha = new (require('mocha'))({ reporter : "spec" });
 
-    grunt.file.expand("test/*.js")
+    grunt.file.expand([ "test/*.js", "test/*.coffee"])
       .map(path.resolve)
       .map(mocha.addFile.bind(mocha));
 
