@@ -20,7 +20,11 @@ describe "CRUD API", ->
         (verb : "GET",    url : "/people/1",  resp : { name : "Euge", address : "1234 Main St." }),
         (verb : "POST",   url : "/people",    resp : { name : "Bob", id : 10 }),
         (verb : "PUT",    url : "/people/10", resp : { name : "NotBob", id : 10 }),
-        (verb : "DELETE", url : "/people/10", resp : {})
+        (verb : "DELETE", url : "/people/10", resp : {}),
+        (verb : "GET",    url : "/people/(\\w+)",        routeParams : ["id"]),
+        (verb : "GET",    url : "/people/(\\w+)/(\\w+)", routeParams : ["name", "id"]) ,
+        (verb : "POST",   url : "/animals.*"),
+        (verb : "GET",    url : "/animals?.*"),
       ], done)
 
   it "should add a new canned response", (done) ->
@@ -90,6 +94,52 @@ describe "Actual canned responses", ->
         .send(name : "NotBob")
         .expect('Content-Type', /json/)
         .expect(200, name : "NotBob", id : 10, done);
+
+    it "works with a route parameter", (done) ->
+      request(server)
+        .get('/people/15')
+        .expect('Content-Type', /json/)
+        .expect(200, { id: '15' }, done)
+
+    it "works with two route parameters", (done) ->
+      request(server)
+        .get('/people/Euge/3')
+        .expect('Content-Type', /json/)
+        .expect(200, { name: 'Euge', id: '3' }, done)
+
+    it "passes POST data as parameters", (done) ->
+      request(server)
+        .post('/animals')
+        .send(name : "Rex")
+        .expect('Content-Type', /json/)
+        .expect(200, { name : "Rex" }, done);
+
+    it "passes query string parameters", (done) ->
+      request(server)
+        .get('/animals?type=dog')
+        .expect('Content-Type', /json/)
+        .expect(200, { type : "dog" }, done);
+
+    it "passes POST data as form values", (done) ->
+      request(server)
+        .post('/animals')
+        .field("name", "Rex")
+        .expect('Content-Type', /json/)
+        .expect(200, { name : "Rex" }, done);
+
+    it "picks form values before query string parameters", (done) ->
+      request(server)
+        .post('/animals?name=Query')
+        .field("name", "Field")
+        .expect('Content-Type', /json/)
+        .expect(200, { name : "Field" }, done);
+
+    it "picks body data before query string parameters", (done) ->
+      request(server)
+        .post('/animals?name=Query')
+        .send(name: "Body")
+        .expect('Content-Type', /json/)
+        .expect(200, { name : "Body" }, done);
 
   describe "without a match", ->
 
