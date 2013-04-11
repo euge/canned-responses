@@ -23,3 +23,7 @@ del("/people/10", {});
 get("/people/:id", function(params) { return params; });
 
 get("/people/:name/:id", function(params) { return params; });
+
+post("/animals.*", function(params) { return params; });
+
+get("/animals?.*", function(params) { return params; });
