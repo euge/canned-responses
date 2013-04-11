@@ -97,13 +97,13 @@ describe "Actual canned responses", ->
       request(server)
         .get('/people/15')
         .expect('Content-Type', /json/)
-        .expect(200, { route : { id: '15' }}, done)
+        .expect(200, { id: '15' }, done)
 
     it "works with two route parameters", (done) ->
       request(server)
         .get('/people/Euge/3')
         .expect('Content-Type', /json/)
-        .expect(200, { route : { name: 'Euge', id: '3' }}, done)
+        .expect(200, { name: 'Euge', id: '3' }, done)
 
   describe "without a match", ->
 
