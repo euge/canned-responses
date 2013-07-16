@@ -1,3 +1,3 @@
-var canned = require("../"), server;
+var canned = require("../")
 
-server = canned().init(__dirname + "/responses.js").listen(3000)
+canned(__dirname + "/responses.js").listen(3000)
