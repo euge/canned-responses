@@ -12,6 +12,12 @@ describe "Actual canned responses", ->
 
   describe "with a match", ->
 
+    it "adds a default index route handler", (done) ->
+      request(server)
+        .get("/")
+        .expect("Content-Type", /html/)
+        .expect(200, /<html>\s*<body>/, done)
+
     it "works with a GET", (done) ->
       request(server)
         .get('/people')

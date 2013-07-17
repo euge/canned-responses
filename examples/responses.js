@@ -1,4 +1,4 @@
-get("/", function(req, res) {
+get("/name", function(req, res) {
   res.send({
     name : "bob",
     age : 23

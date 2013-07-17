@@ -13,7 +13,8 @@ module.exports = function(grunt) {
         "white" : false,
         "devel" : true,
         "node" : true,
-        "es5": true
+        "es5": true,
+        "multistr" : true
       },
       source : {
         files : {
