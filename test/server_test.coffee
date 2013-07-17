@@ -8,7 +8,7 @@ describe "Actual canned responses", ->
   server = null
   
   before ->
-    server = canned("#{__dirname}/fixtures/responses.js").server
+    server = new canned("#{__dirname}/fixtures/responses.js").server
 
   describe "with a match", ->
 
